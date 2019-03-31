@@ -16,7 +16,7 @@
                     <input name="regex" class="form-control input-field" />
                     <textarea name="string" class="form-control textarea-field"></textarea>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 output">
                     <pre>// code here</pre>
                 </div>
             </div>

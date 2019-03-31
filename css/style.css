@@ -23,3 +23,7 @@ input.input-field {
 textarea.textarea-field {
     height: 75%;
 }
+
+.output {
+    padding: 1em;
+}
