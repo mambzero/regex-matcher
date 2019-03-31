@@ -24,10 +24,24 @@
         <script>
             $('#regex,#string').on('change keyup',function(event){
                 $pattern = $('#regex').val();
-                $string = $('#string').val();
-                if ($pattern && $string) {
-                    $('#output').html($string.match($pattern));
+                $text = $('#string').val();
+                if (!$pattern || !$text) {
+                    return;
                 }
+                $.ajax({
+                    url: "matcher.php",
+                    type: "post",
+                    data: {"pattern" : $pattern, "text" : $text},
+                    success: function (response) {
+                       // you will get response from your php page (what you echo or print) 
+                       if (response) {
+                        $('#output').html(response);
+                       }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                       console.log(textStatus, errorThrown);
+                    }
+                });
             });
         </script>
     </body>
