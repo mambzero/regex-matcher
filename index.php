@@ -13,13 +13,22 @@
             </div>
             <div class="row fields">
                 <div class="col-md-8">
-                    <input name="regex" class="form-control input-field" />
-                    <textarea name="string" class="form-control textarea-field"></textarea>
+                    <input name="regex" class="form-control input-field" id="regex" />
+                    <textarea name="string" class="form-control textarea-field" id="string"></textarea>
                 </div>
-                <div class="col-md-4 output">
-                    <pre>// code here</pre>
+                <div class="col-md-4 output-field">
+                    <pre id="output">// match here</pre>
                 </div>
             </div>
         </div>
+        <script>
+            $('#regex,#string').on('change keyup',function(event){
+                $pattern = $('#regex').val();
+                $string = $('#string').val();
+                if ($pattern && $string) {
+                    $('#output').html($string.match($pattern));
+                }
+            });
+        </script>
     </body>
 </html>
