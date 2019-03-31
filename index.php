@@ -26,6 +26,7 @@
                 $pattern = $('#regex').val();
                 $text = $('#string').val();
                 if (!$pattern || !$text) {
+                    $('#output').html("// match here");
                     return;
                 }
                 $.ajax({
@@ -35,7 +36,9 @@
                     success: function (response) {
                        // you will get response from your php page (what you echo or print) 
                        if (response) {
-                        $('#output').html(response);
+                           $('#output').html(response);
+                       } else {
+                           $('#output').html("No match!");
                        }
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
