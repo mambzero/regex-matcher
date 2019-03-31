@@ -34,7 +34,6 @@
                     type: "post",
                     data: {"pattern" : $pattern, "text" : $text},
                     success: function (response) {
-                       // you will get response from your php page (what you echo or print) 
                        if (response) {
                            $('#output').html(response);
                        } else {
