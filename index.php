@@ -7,23 +7,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
-        <div class="container" id="page">
+        <div class="container page">
             <div class="row">
                 <h1>Simple Regex Matcher</h1>
             </div>
-            <div class="row input-field">
+            <div class="row fields">
                 <div class="col-md-8">
-                    <input name="regex" class="form-control" />
+                    <input name="regex" class="form-control input-field" />
+                    <textarea name="string" class="form-control textarea-field"></textarea>
                 </div>
-            </div>
-            <div class="row textarea-field">
-                <div class="col-md-8">
-                    <textarea name="string" class="form-control"></textarea>
+                <div class="col-md-4">
+                    <pre>// code here</pre>
                 </div>
             </div>
         </div>
-        <script>
-            $('body').css({ height: $(document).height()});
-        </script>
     </body>
 </html>
