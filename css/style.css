@@ -1,0 +1,19 @@
+/* CSS file */
+
+h1 {
+    margin-left: 15px;
+    margin-bottom: 0;
+}
+
+#page {
+    height: 75%;
+}
+
+.input-field {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.textarea-field, .textarea-field textarea {
+    height: 100%;
+}
