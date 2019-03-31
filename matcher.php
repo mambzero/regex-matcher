@@ -6,7 +6,7 @@ $pattern = '/'.$_POST['pattern'].'/';
 $text = $_POST['text'];
 
 if (preg_match_all($pattern, $text,$matches)) {
-   print_r($matches); 
+   print_r($matches);
 }
 
 ?>
