@@ -5,12 +5,26 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src="js/jquery.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="main-wrapper">
             <div class="section left col-md-9">
+			<div class="header">
                 <h1>Simple Regex Matcher</h1>
+				<div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+						
+						<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-right">
+					  <li><a href="#">HTML</a></li>
+					  <li><a href="#">CSS</a></li>
+					  <li><a href="#">JavaScript</a></li>
+					</ul>
+				</div>
+			</div>
                 <input name="regex" class="form-control input-field" id="regex" />
                 <textarea name="string" class="form-control textarea-field" id="string"></textarea>
             </div>

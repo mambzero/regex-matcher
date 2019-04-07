@@ -12,6 +12,15 @@
   background: grey;
 }
 
+.header {
+	width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+	padding-top: 10px;
+}
+
 .section {
   height: 100%;
   display: flex;
@@ -49,7 +58,6 @@ textarea.textarea-field {
 }
 
 h1 {
-    margin-top: 10px;
-    margin-bottom: 0;
+    margin: 0;
     color: white;
 }
