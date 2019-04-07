@@ -27,15 +27,17 @@ $(document).ready(function() {
 	
 	$('#menu').on('click',function(event){
 	
-		$('.options').removeClass('selected');
+		$(this).children().removeAttr('class');
 	
 		$element = $('#' + event.target.id);
-		$element.addClass('selected');		
+		$element.parent().addClass('active');		
 		$value = $element.html();
 		
 		$('#preg_func').val($value);
 		
 		$("#regex").trigger("change");
+		
+		console.log(event);
 		
 		event.preventDefault();
 		
