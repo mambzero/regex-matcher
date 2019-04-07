@@ -1,22 +1,22 @@
 /* CSS file */
 
 .main-wrapper {
-  height: 100vh; 
+  height: 100vh;
 }
 
 .left {
-  background: black;  
+  background: black;
 }
 
 .right {
-  background: grey;  
+  background: grey;
 }
 
 .section {
-  height: 100%;  
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: flex-start;
   align-items: flex-start;
 }
 

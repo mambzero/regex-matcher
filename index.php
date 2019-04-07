@@ -5,6 +5,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="js/jquery.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="main-wrapper">
@@ -17,30 +18,5 @@
                 <pre class="full" id="output">// match here</pre>
             </div>
         </div>
-        <script>
-            $('#regex,#string').on('change keyup',function(event){
-                $pattern = $('#regex').val();
-                $text = $('#string').val();
-                if (!$pattern || !$text) {
-                    $('#output').html("// match here");
-                    return;
-                }
-                $.ajax({
-                    url: "matcher.php",
-                    type: "post",
-                    data: {"pattern" : $pattern, "text" : $text},
-                    success: function (response) {
-                       if (response) {
-                           $('#output').html(response);
-                       } else {
-                           $('#output').html("No match!");
-                       }
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                       console.log(textStatus, errorThrown);
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
