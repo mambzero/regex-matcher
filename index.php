@@ -15,18 +15,18 @@
                 <h1>Simple Regex Matcher</h1>
 				<div class="dropdown">
 					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-						
 						<span class="caret"></span>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-right">
-					  <li><a href="#">HTML</a></li>
-					  <li><a href="#">CSS</a></li>
-					  <li><a href="#">JavaScript</a></li>
+					<ul class="dropdown-menu dropdown-menu-right" id="menu">
+					  <li><a href="#" class="options selected" id="opt1">preg_match_all</a></li>
+					  <li><a href="#" class="options" id="opt2">preg_match</a></li>
+					  <li><a href="#" class="options" id="opt3">preg_split</a></li>
 					</ul>
 				</div>
 			</div>
-                <input name="regex" class="form-control input-field" id="regex" />
-                <textarea name="string" class="form-control textarea-field" id="string"></textarea>
+                <input type="text" name="regex" class="form-control input-field" id="regex" />
+                <textarea type="text" name="string" class="form-control textarea-field" id="string"></textarea>
+				<input type="hidden" id="preg_func" value="preg_match_all" />
             </div>
             <div class="section right col-md-3">
                 <pre class="full" id="output">// match here</pre>
