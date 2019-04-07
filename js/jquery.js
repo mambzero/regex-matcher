@@ -25,19 +25,15 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('#menu').on('click',function(event){
+	$('#menu').find('a').on('click',function(event){
 	
-		$(this).children().removeAttr('class');
-	
-		$element = $('#' + event.target.id);
-		$element.parent().addClass('active');		
-		$value = $element.html();
+		$('#menu').children().removeAttr('class');
 		
-		$('#preg_func').val($value);
+		$(this).parent().addClass('active');
+		
+		$('#preg_func').val($(this).text());
 		
 		$("#regex").trigger("change");
-		
-		console.log(event);
 		
 		event.preventDefault();
 		

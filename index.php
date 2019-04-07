@@ -18,9 +18,9 @@
 							<span class="caret"></span>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-right" id="menu">
-						  <li class="active"><a href="#" id="opt1">preg_match_all</a></li>
-						  <li><a href="#" id="opt2">preg_match</a></li>
-						  <li><a href="#" id="opt3">preg_split</a></li>
+						  <li class="active"><a href="#">preg_match_all</a></li>
+						  <li><a href="#">preg_match</a></li>
+						  <li><a href="#">preg_split</a></li>
 						</ul>
 					</div>
 				</div>
