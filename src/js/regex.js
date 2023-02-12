@@ -5,19 +5,19 @@ let pattern, input, resultArea;
 
 function createApp(element) {
     element.innerHTML = template;
-    element.querySelector('input[name="pattern"]').addEventListener('input', patternInputhandler);
-    element.querySelector('textarea[name="input"]').addEventListener('input', textInputhandler);
+    element.querySelector('input[name="pattern"]').addEventListener('input', patternInputHandler);
+    element.querySelector('textarea[name="input"]').addEventListener('input', textInputHandler);
     resultArea = element.querySelector('#result');
 }
 
-function patternInputhandler(e)
+function patternInputHandler(e)
 {
     e.preventDefault();
     pattern = e.target.value;
     drawResult();
 }
 
-function textInputhandler(e)
+function textInputHandler(e)
 {
     e.preventDefault();
     input = e.target.value;
@@ -64,7 +64,7 @@ function drawResult()
         result = ul;
     }
 
-    resultArea.innerHTML = `<pre>${result.toString()}</pre>`;
+    resultArea.innerHTML = result;
 }
 
 export { createApp }
