@@ -69,6 +69,7 @@ a:hover {
 
 #result > * {
   white-space: pre-wrap;
+  font-family: var(--bs-font-monospace);
 }
 
 #result ul {
