@@ -1,54 +1,70 @@
 
 import template from './template';
 
-let pattern;
-let input;
-let result;
+let pattern, input, resultArea;
 
 function createApp(element) {
     element.innerHTML = template;
     element.querySelector('input[name="pattern"]').addEventListener('input', patternInputhandler);
-    element.querySelector('textarea[name="input"]').addEventListener('input', stringInputhandler);
-    result = element.querySelector('#result');
+    element.querySelector('textarea[name="input"]').addEventListener('input', textInputhandler);
+    resultArea = element.querySelector('#result');
 }
 
 function patternInputhandler(e)
 {
     e.preventDefault();
-    pattern = e.target.value
+    pattern = e.target.value;
     drawResult();
 }
 
-function stringInputhandler(e)
+function textInputhandler(e)
 {
     e.preventDefault();
-    input = e.target.value
+    input = e.target.value;
     drawResult();
+}
+
+function inputsAreValid() {
+    return !!pattern && !!input;
 }
 
 function findMatches()
 {   
     try {
 
-        if (!input || !pattern) {
-            throw new Error('Invalid inputs'); 
+        if (inputsAreValid() === false) {
+            return '...';
         }
 
-        return input.match(new RegExp(pattern, 'gm')) || [];
+        let matches = input.match(new RegExp(pattern), 'gm');
+
+        if (!matches) {
+            throw new Error('No matches found!');
+        }
+
+        return matches;
 
     } catch (error) {
-        console.error(error);
-        return [];
+        return `<p class="text-error">${error.message}</p>`;
     }
 }
 
 function drawResult()
 {
-    let matches = findMatches();
+    let result = findMatches();
 
-    console.log(matches);
+    if (Array.isArray(result)) {
+        let ul = '<ul>';
+        ul += '<li>[</li>';
+        for (const [key, value] of Object.entries(result)) {
+            ul += `<li>${key}: ${JSON.stringify(value)}</li>`;
+        }
+        ul += '<li>]</li>';
+        ul += '</ul>';
+        result = ul;
+    }
 
-    result.innerHTML = JSON.stringify(matches);
+    resultArea.innerHTML = `<pre>${result.toString()}</pre>`;
 }
 
 export { createApp }

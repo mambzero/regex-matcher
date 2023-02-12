@@ -17,7 +17,7 @@ export default `
     </div>
     <div class="col-md-4 bg-dark py-3">
       <div id="result" class="text-white">
-        // Result
+        ...
       </div>
     </div>
   </div>
