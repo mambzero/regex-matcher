@@ -1,8 +1,8 @@
 export default {
   root: './src',
-  publicDir: './../public',
+  publicDir: '../public',
   build: {
-    outDir: './../dist'
+    outDir: '../dist'
   },
   server: {
     port: 3000,
