@@ -1,0 +1,26 @@
+[
+    {
+        "name": "g",
+        "desc": "The search looks for all matches"
+    },
+    {
+        "name": "m",
+        "desc": "Multiline mode"
+    },
+    {
+        "name": "i",
+        "desc": "The search is case-insensitive"
+    },
+    {
+        "name": "s",
+        "desc": "Enables \"dotall\" mode"
+    },
+    {
+        "name": "u",
+        "desc": "Enables full Unicode support"
+    },
+    {
+        "name": "y",
+        "desc": "Enables \"Sticky\" mode"
+    }
+]

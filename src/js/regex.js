@@ -1,5 +1,6 @@
-
 import template from './template';
+import { Dropdown } from 'bootstrap';
+import flags from '../data/flags.json';
 
 let pattern, input, resultArea;
 
@@ -8,6 +9,33 @@ function createApp(element) {
     element.querySelector('input[name="pattern"]').addEventListener('input', patternInputHandler);
     element.querySelector('textarea[name="input"]').addEventListener('input', textInputHandler);
     resultArea = element.querySelector('#result');
+    initFlagsDropdown();
+}
+
+function initFlagsDropdown()
+{
+    const dropdown = document.querySelector('#flags');
+    const list = dropdown.querySelector('.dropdown-menu');
+
+    for (let { name, desc } of flags) {
+        list.appendChild(
+            createDropdownItem({ name, desc })
+        );
+    }
+
+    new Dropdown(dropdown);
+}
+
+function createDropdownItem(flag)
+{
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    a.classList.add('dropdown-item');
+    a.innerText = `${flag.name} - ${flag.desc}`;
+    a.setAttribute('data-flag', flag.name);
+    a.href = '#';
+    li.appendChild(a);
+    return li;
 }
 
 function patternInputHandler(e)
