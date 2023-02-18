@@ -2,13 +2,18 @@
   "name": "regex-matcher",
   "private": true,
   "version": "0.0.1",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "path": "^0.12.7",
+    "sass": "^1.58.3",
     "vite": "^4.1.0"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.3"
   }
 }
