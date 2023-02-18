@@ -12,7 +12,8 @@ export default `
             <div class="input-group-text">
               <div class="dropdown" id="flags">
                 <a class="dropdown-toggle" type="button" id="flags-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span>Flags</span>
+                  <span>/</span>
+                  <span class="flags-string"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="flags-dropdown-btn"></ul>
               </div>

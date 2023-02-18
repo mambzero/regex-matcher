@@ -4,6 +4,10 @@ import flags from '../data/flags.json';
 
 let pattern, input, resultArea;
 
+const selectedFlagClasses = ['bg-primary', 'text-white'];
+
+flags.selected = ['g', 'm'];
+
 function createApp(element) {
     element.innerHTML = template;
     element.querySelector('input[name="pattern"]').addEventListener('input', patternInputHandler);
@@ -17,25 +21,55 @@ function initFlagsDropdown()
     const dropdown = document.querySelector('#flags');
     const list = dropdown.querySelector('.dropdown-menu');
 
+    setFlagsString();
+
     for (let { name, desc } of flags) {
         list.appendChild(
             createDropdownItem({ name, desc })
         );
     }
 
+    list.addEventListener('click', flagsClickHandler);
+
     new Dropdown(dropdown);
+}
+
+function flagsClickHandler(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.target.nodeName === 'A') {
+        let target = e.target;
+        let flag = target.getAttribute('data-flag');
+        if (flags.selected.includes(flag)) {
+            flags.selected = flags.selected.filter((selected) => selected !== flag);
+            target.classList.remove(...selectedFlagClasses);
+        } else {
+            flags.selected.push(flag); 
+            target.classList.add(...selectedFlagClasses);
+        }
+        setFlagsString();
+        drawResult();
+    }
 }
 
 function createDropdownItem(flag)
 {
     let li = document.createElement('li');
     let a = document.createElement('a');
-    a.classList.add('dropdown-item');
-    a.innerText = `${flag.name} - ${flag.desc}`;
+    let linkClasses = ['dropdown-item'];
+    if (flags.selected.includes(flag.name)) {
+        linkClasses.push(...selectedFlagClasses);
+    }
+    a.classList.add(...linkClasses);
     a.setAttribute('data-flag', flag.name);
+    a.innerText = `${flag.name} - ${flag.desc}`;
     a.href = '#';
     li.appendChild(a);
     return li;
+}
+
+function setFlagsString() {
+    document.querySelector('.flags-string').innerHTML = flags.selected.join('');
 }
 
 function patternInputHandler(e)
@@ -64,7 +98,7 @@ function findMatches()
             return '...';
         }
 
-        let matches = input.match(new RegExp(pattern), 'gm');
+        let matches = input.match(new RegExp(pattern, flags.selected.join('') || undefined));
 
         if (!matches) {
             throw new Error('No matches found!');
