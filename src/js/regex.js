@@ -4,8 +4,6 @@ import flags from '../data/flags.json';
 
 let pattern, input, resultArea;
 
-const selectedFlagClasses = ['bg-primary', 'text-white'];
-
 flags.selected = ['g', 'm'];
 
 function createApp(element) {
@@ -37,15 +35,17 @@ function initFlagsDropdown()
 function flagsClickHandler(e) {
     e.preventDefault();
     e.stopPropagation();
-    if (e.target.nodeName === 'A') {
-        let target = e.target;
+    
+    let target = e.target;
+
+    if (target.nodeName === 'A') {
         let flag = target.getAttribute('data-flag');
         if (flags.selected.includes(flag)) {
             flags.selected = flags.selected.filter((selected) => selected !== flag);
-            target.classList.remove(...selectedFlagClasses);
+            target.classList.remove('active');
         } else {
             flags.selected.push(flag); 
-            target.classList.add(...selectedFlagClasses);
+            target.classList.add('active');
         }
         setFlagsString();
         drawResult();
@@ -54,18 +54,17 @@ function flagsClickHandler(e) {
 
 function createDropdownItem(flag)
 {
-    let li = document.createElement('li');
     let a = document.createElement('a');
-    let linkClasses = ['dropdown-item'];
-    if (flags.selected.includes(flag.name)) {
-        linkClasses.push(...selectedFlagClasses);
-    }
-    a.classList.add(...linkClasses);
+    a.classList.add('dropdown-item');
     a.setAttribute('data-flag', flag.name);
-    a.innerText = `${flag.name} - ${flag.desc}`;
+    a.innerHTML = `<span class="fw-bold">${flag.name}</span> - ${flag.desc}`;
     a.href = '#';
-    li.appendChild(a);
-    return li;
+
+    if (flags.selected.includes(flag.name)) {
+        a.classList.add('active');
+    }
+
+    return document.createElement('li').appendChild(a);
 }
 
 function setFlagsString() {
