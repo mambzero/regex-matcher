@@ -5,7 +5,7 @@ export default `
     <div class="header row bg-primary">
       <div class="col-12">
         <div class="d-flex flex-nowrap align-items-center">
-          <img class="logo vanila" src="/images/javascript.svg" alt="Regex 99 logo">
+          <img class="logo vanila" src="images/javascript.svg" alt="Regex 99 logo">
           <h1>Regex 99</h1>
           <div class="input-group">
             <input type="text" name="pattern" class="form-control ms-3" placeholder="Pattern">
@@ -39,7 +39,7 @@ export default `
           <p>
             <span>Built with</span>
             <a href="https://vitejs.dev" target="_blank">
-              <img src="/images/vite.svg" alt="Vite logo" class="mb-1" height="20px" width="auto" />
+              <img src="images/vite.svg" alt="Vite logo" class="mb-1" height="20px" width="auto" />
             </a>
           </a>
         </div>
