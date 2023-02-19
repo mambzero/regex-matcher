@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --emptyOutDir",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build --mode=gh-pages --emptyOutDir && gh-pages -d dist -m Deploy"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "path": "^0.12.7",
     "sass": "^1.58.3",
     "vite": "^4.1.0"
