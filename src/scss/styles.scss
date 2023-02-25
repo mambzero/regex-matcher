@@ -87,3 +87,14 @@ a {
 .text-error {
   color: red;
 }
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 1.2em;
+    margin-bottom: 0.25em;
+  }
+  .logo {
+    height: 1.2em;
+    padding: 0 .25em 0 0;
+  }
+}
