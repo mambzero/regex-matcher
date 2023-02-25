@@ -41,7 +41,7 @@ export default `
             <a href="https://vitejs.dev" target="_blank">
               <img src="images/vite.svg" alt="Vite logo" class="mb-1" height="20px" width="auto" />
             </a>
-          </a>
+          </p>
         </div>
       </div>
     </div>
